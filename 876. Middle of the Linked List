@@ -1,0 +1,59 @@
+# Intuition
+<!-- Describe your first thoughts on how to solve this problem. -->
+
+# Approach
+<!-- Describe your approach to solving the problem. -->
+
+# Complexity
+- Time complexity:
+<!-- Add your time complexity here, e.g. $$O(n)$$ -->
+
+- Space complexity:
+<!-- Add your space complexity here, e.g. $$O(n)$$ -->
+
+# Code
+```cpp []
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* middleNode(ListNode* head) {
+        ListNode* temp = new ListNode;
+        temp = head;
+        int i=0;
+        while(temp!=NULL){
+            i++;
+            temp=temp->next;
+        }
+        if(i%2 != 0){
+            int m = (i+1)/2;
+            int j=0;
+            temp = head;
+            while(temp!=NULL){
+                j++;
+                if(j==m)return temp;      
+                temp=temp->next;
+            }
+        }
+        else{
+            int m = i/2+1;
+            int j=0;
+            temp = head;
+            while(temp!=NULL){
+                j++;
+                if(j==m)return temp;      
+                temp=temp->next;
+            }
+        }
+        return head;
+    }
+};
+```
