@@ -1,0 +1,39 @@
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        set<int> s;
+        int a=0;
+        int b=nums.size()-1;
+        while(a<=b){
+            int x=s.size();
+            s.insert(nums[a]);
+            if(x==s.size())return nums[a];
+            int z=s.size();
+            s.insert(nums[b]);
+            if(z==s.size())return nums[b];
+            a++;
+            b--;
+        }
+        return -1;
+    }
+};
+
+
+
+
+
+
+
+
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        set<int> s;
+        for(int i=0;i<nums.size();i++){
+            int a=s.size();
+            s.insert(nums[i]);
+            if(a==s.size())return nums[i];
+        }
+        return 0;
+    }
+};
