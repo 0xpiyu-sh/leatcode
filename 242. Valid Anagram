@@ -1,0 +1,14 @@
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        vector<char>a;
+        sort(s.begin(),s.end());
+        sort(t.begin(),t.end());
+        set_difference(s.begin(),s.end(),t.begin(),t.end(),back_inserter(a));
+        set_difference(t.begin(),t.end(),s.begin(),s.end(),back_inserter(a));
+        if(a.empty()){
+            return true;
+        }
+        return false;
+    }
+};
