@@ -1,0 +1,12 @@
+class Solution {
+public:
+    int hammingWeight(int n) {
+        string m=bitset<64>(n).to_string();
+        vector<char> z;
+        for(int i=0;i<m.size();i++){
+            z.push_back(m[i]);
+        }
+        int q=count(z.begin(),z.end(),'1');
+        return q;
+    }
+};
